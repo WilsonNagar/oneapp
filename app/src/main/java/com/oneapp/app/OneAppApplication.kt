@@ -1,8 +1,8 @@
 package com.oneapp.app
 
 import android.app.Application
-import com.jakewharton.timber.Timber
 import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
 
 @HiltAndroidApp
 class OneAppApplication : Application() {

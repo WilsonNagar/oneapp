@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ktlint)
 }
@@ -62,10 +63,6 @@ android {
         buildConfig = true
     }
 
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.get()
-    }
-
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -107,6 +104,9 @@ dependencies {
     // AndroidX
     implementation(libs.coreKtx)
     implementation(libs.appcompat)
+
+    // Utilities
+    implementation("com.jakewharton.timber:timber:5.0.1")
 
     // WorkManager
     implementation(libs.workmanager)
