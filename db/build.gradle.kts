@@ -8,10 +8,10 @@ plugins {
 
 android {
     namespace = "com.oneapp.db"
-    compileSdk = libs.versions["compile-sdk"].get().toInt()
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = libs.versions["min-sdk"].get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -45,20 +45,20 @@ android {
 
 dependencies {
     // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(libs.hiltAndroid)
+    kapt(libs.hiltCompiler)
 
     // Room
-    implementation(libs.room.runtime)
-    implementation(libs.room.ktx)
-    kapt(libs.room.compiler)
+    implementation(libs.roomRuntime)
+    implementation(libs.roomKtx)
+    kapt(libs.roomCompiler)
 
     // Coroutines
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
+    implementation(libs.coroutinesCore)
+    implementation(libs.coroutinesAndroid)
 
     // Testing
     testImplementation(libs.junit)
-    androidTestImplementation(libs.junit.ext)
+    androidTestImplementation(libs.junitExt)
 }
 

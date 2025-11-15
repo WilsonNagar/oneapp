@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.oneapp.app"
-    compileSdk = libs.versions["compile-sdk"].get().toInt()
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
         applicationId = "com.oneapp.app"
-        minSdk = libs.versions["min-sdk"].get().toInt()
-        targetSdk = libs.versions["target-sdk"].get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
+        targetSdk = libs.versions.targetSdk.get().toInt()
         versionCode = 1
         versionName = "1.0"
 
@@ -81,31 +81,31 @@ dependencies {
     implementation(project(":common-feature-location"))
 
     // Compose BOM
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.graphics)
-    implementation(libs.compose.ui.tooling.preview)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.activity)
+    implementation(platform(libs.composeBom))
+    implementation(libs.composeUi)
+    implementation(libs.composeUiGraphics)
+    implementation(libs.composeUiToolingPreview)
+    implementation(libs.composeMaterial3)
+    implementation(libs.composeActivity)
 
     // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
+    implementation(libs.hiltAndroid)
+    kapt(libs.hiltCompiler)
+    implementation(libs.hiltNavigationCompose)
 
     // Navigation
-    implementation(libs.navigation.compose)
+    implementation(libs.navigationCompose)
 
     // Lifecycle
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycleRuntimeKtx)
+    implementation(libs.lifecycleViewmodelCompose)
 
     // Coroutines
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
+    implementation(libs.coroutinesCore)
+    implementation(libs.coroutinesAndroid)
 
     // AndroidX
-    implementation(libs.core.ktx)
+    implementation(libs.coreKtx)
     implementation(libs.appcompat)
 
     // WorkManager
@@ -114,12 +114,12 @@ dependencies {
     // Testing
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
-    testImplementation(libs.coroutines.test)
-    androidTestImplementation(libs.junit.ext)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.compose.ui.test.junit4)
-    androidTestImplementation(libs.espresso.core)
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
+    testImplementation(libs.coroutinesTest)
+    androidTestImplementation(libs.junitExt)
+    androidTestImplementation(platform(libs.composeBom))
+    androidTestImplementation(libs.composeUiTest)
+    androidTestImplementation(libs.espressoCore)
+    debugImplementation(libs.composeUiTooling)
+    debugImplementation(libs.composeUiTestManifest)
 }
 

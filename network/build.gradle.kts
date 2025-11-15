@@ -8,10 +8,10 @@ plugins {
 
 android {
     namespace = "com.oneapp.network"
-    compileSdk = libs.versions["compile-sdk"].get().toInt()
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = libs.versions["min-sdk"].get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -39,26 +39,26 @@ android {
 
 dependencies {
     // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    implementation(libs.hiltAndroid)
+    kapt(libs.hiltCompiler)
 
     // Network
     implementation(libs.retrofit)
-    implementation(libs.retrofit.moshi)
+    implementation(libs.retrofitMoshi)
     implementation(libs.okhttp)
-    implementation(libs.okhttp.logging)
+    implementation(libs.okhttpLogging)
     implementation(libs.moshi)
-    implementation(libs.moshi.kotlin)
-    kapt(libs.moshi.codegen)
+    implementation(libs.moshiKotlin)
+    kapt(libs.moshiCodegen)
 
     // Coroutines
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
+    implementation(libs.coroutinesCore)
+    implementation(libs.coroutinesAndroid)
 
     // Testing
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
-    testImplementation(libs.coroutines.test)
-    androidTestImplementation(libs.junit.ext)
+    testImplementation(libs.coroutinesTest)
+    androidTestImplementation(libs.junitExt)
 }
 

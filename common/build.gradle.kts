@@ -6,10 +6,10 @@ plugins {
 
 android {
     namespace = "com.oneapp.common"
-    compileSdk = libs.versions["compile-sdk"].get().toInt()
+    compileSdk = libs.versions.compileSdk.get().toInt()
 
     defaultConfig {
-        minSdk = libs.versions["min-sdk"].get().toInt()
+        minSdk = libs.versions.minSdk.get().toInt()
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
@@ -45,36 +45,36 @@ android {
 
 dependencies {
     // Compose BOM
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.graphics)
-    implementation(libs.compose.ui.tooling.preview)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.activity)
+    implementation(platform(libs.composeBom))
+    implementation(libs.composeUi)
+    implementation(libs.composeUiGraphics)
+    implementation(libs.composeUiToolingPreview)
+    implementation(libs.composeMaterial3)
+    implementation(libs.composeActivity)
 
     // AndroidX
-    implementation(libs.core.ktx)
+    implementation(libs.coreKtx)
     implementation(libs.appcompat)
 
     // Lifecycle
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.lifecycle.viewmodel.compose)
+    implementation(libs.lifecycleRuntimeKtx)
+    implementation(libs.lifecycleViewmodelCompose)
 
     // Coroutines
-    implementation(libs.coroutines.core)
-    implementation(libs.coroutines.android)
+    implementation(libs.coroutinesCore)
+    implementation(libs.coroutinesAndroid)
 
     // Utilities
     implementation(libs.timber)
-    implementation(libs.coil.compose)
-    implementation(libs.security.crypto)
+    implementation(libs.coilCompose)
+    implementation(libs.securityCrypto)
 
     // Testing
     testImplementation(libs.junit)
-    androidTestImplementation(libs.junit.ext)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.compose.ui.test.junit4)
-    debugImplementation(libs.compose.ui.tooling)
-    debugImplementation(libs.compose.ui.test.manifest)
+    androidTestImplementation(libs.junitExt)
+    androidTestImplementation(platform(libs.composeBom))
+    androidTestImplementation(libs.composeUiTest)
+    debugImplementation(libs.composeUiTooling)
+    debugImplementation(libs.composeUiTestManifest)
 }
 
